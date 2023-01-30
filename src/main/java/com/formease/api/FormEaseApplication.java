@@ -8,6 +8,6 @@ public class FormEaseApplication
 {
 	public static void main( String[] args )
 	{
-		SpringApplication.run(FormEaseApplication.class, args);
+		SpringApplication.run( FormEaseApplication.class, args );
 	}
 }
