@@ -1,6 +1,7 @@
 package com.formease.api.controller;
 
 import com.formease.api.domain.user.*;
+import com.formease.api.domain.user.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,8 +28,6 @@ public class UserController
     public ResponseEntity add( @RequestBody @Valid AddUserData data, UriComponentsBuilder uriBuilder )
     {
         User user = userService.createNewUser( data );
-
-        userRepository.save( user );
 
         URI uri = uriBuilder.path( "users/{id}" ).buildAndExpand( user.getId() ).toUri();
 
