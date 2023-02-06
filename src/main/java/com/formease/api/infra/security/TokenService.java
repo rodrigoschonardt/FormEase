@@ -18,17 +18,19 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
-    public String generateToken( User user )
+    public JwtTokenData generateToken( User user )
     {
         try
         {
             Algorithm algorithm = Algorithm.HMAC256(secret);
 
-            return JWT.create()
-                      .withIssuer("API formease")
-                      .withSubject( user.getEmail() )
-                      .withExpiresAt( getExpirationDate() )
-                      .sign( algorithm );
+            Instant expiration = getExpirationDate();
+
+            return new JwtTokenData( JWT.create()
+                                        .withIssuer("API formease")
+                                        .withSubject( user.getEmail() )
+                                        .withExpiresAt( expiration )
+                                        .sign( algorithm ), expiration );
         }
         catch ( JWTCreationException ex )
         {
@@ -42,7 +44,7 @@ public class TokenService {
         {
             Algorithm algorithm = Algorithm.HMAC256( secret );
 
-            return JWT.require(algorithm)
+            return JWT.require( algorithm )
                       .withIssuer( "API formease" )
                       .build()
                       .verify( token )

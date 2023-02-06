@@ -31,8 +31,8 @@ public class AuthenticationController
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken( data.email(), data.password() );
         Authentication authentication = manager.authenticate( authenticationToken );
 
-        String token = tokenService.generateToken( (User) authentication.getPrincipal() );
+        JwtTokenData tokenData = tokenService.generateToken( (User) authentication.getPrincipal() );
 
-        return ResponseEntity.ok( new JwtTokenData( token ) );
+        return ResponseEntity.ok( tokenData );
     }
 }
