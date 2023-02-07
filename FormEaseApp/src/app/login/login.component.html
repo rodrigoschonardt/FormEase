@@ -1,0 +1,23 @@
+<div class="form-container">
+    <form>
+        <div *ngIf="isSigningUp" class="form-outline mb-4">
+          <input type="text" [(ngModel)]="name" id="name" name="name" class="form-control" />
+          <label class="form-label" for="name">Nome</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="email" [(ngModel)]="username" id="username" name="username" class="form-control" />
+          <label class="form-label" for="username">Email</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="password" [(ngModel)]="password" name="password" id="password" class="form-control"/>
+          <label class="form-label" for="password">Senha</label>
+        </div>
+        <div>
+          <button (click)="submit()" type="button" class="btn btn-primary btn-block mb-4">{{ isSigningUp ? 'Registrar' : 'Entrar' }}</button>
+        </div>
+        <div class="text-center">
+          <p> {{ isSigningUp ? 'Já tem cadastro? ' : 'Não tem Cadastro? ' }}
+          <a href="#" (click)="switchMode()">{{ isSigningUp ? 'Faça login' : 'Registre-se' }}</a></p>
+        </div>
+    </form>
+</div>

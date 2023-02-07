@@ -29,7 +29,8 @@ public class SecurityConfigurations
                    .disable()
                    .sessionManagement().sessionCreationPolicy( SessionCreationPolicy.STATELESS )
                    .and().authorizeRequests()
-                   .requestMatchers( HttpMethod.POST, "/authenticate" ).permitAll()
+                   .requestMatchers( HttpMethod.POST, "/auth" ).permitAll()
+                   .requestMatchers( HttpMethod.POST, "/users" ).permitAll()
                    .anyRequest().authenticated()
                    .and().addFilterBefore( securityFilter, UsernamePasswordAuthenticationFilter.class )
                    .build();
