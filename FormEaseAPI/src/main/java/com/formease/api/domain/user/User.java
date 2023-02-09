@@ -22,8 +22,7 @@ public class User
 {
     public enum States { ACTIVE, DELETED };
 
-    @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @Id @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
     private String email;
     private String name;
@@ -36,6 +35,11 @@ public class User
         this.email = data.email();
         this.name = data.name();
         this.state = data.state();
+    }
+
+    public User( Long id )
+    {
+        this.id = id;
     }
 
     public void updateInfo( UpdateUserData data )

@@ -35,9 +35,10 @@ public class UserController
     }
 
     @GetMapping
-    public ResponseEntity<Page<ListUserData>> getUsers( Pageable page )
+    public ResponseEntity<Page<UserDetailsData>> getUsers( Pageable page )
     {
-        Page<ListUserData> users = userRepository.findAllByState( page, User.States.ACTIVE ).map( ListUserData::new );
+        Page<UserDetailsData> users = userRepository.findAllByState( page, User.States.ACTIVE )
+                                                    .map( UserDetailsData::new );
 
         return ResponseEntity.ok( users );
     }
