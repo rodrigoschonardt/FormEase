@@ -1,8 +1,5 @@
-package com.formease.api.domain.user.service;
+package com.formease.api.domain.user;
 
-import com.formease.api.domain.user.AddUserData;
-import com.formease.api.domain.user.User;
-import com.formease.api.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

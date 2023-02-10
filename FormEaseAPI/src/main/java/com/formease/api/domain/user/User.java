@@ -34,7 +34,7 @@ public class User
     {
         this.email = data.email();
         this.name = data.name();
-        this.state = data.state();
+        this.state = States.ACTIVE;
     }
 
     public User( Long id )

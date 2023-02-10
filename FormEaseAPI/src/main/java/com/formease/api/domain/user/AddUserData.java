@@ -10,7 +10,5 @@ public record AddUserData
     @NotBlank
     String name,
     @NotBlank
-    String password,
-    @NotNull
-    User.States state
+    String password
 ) {}

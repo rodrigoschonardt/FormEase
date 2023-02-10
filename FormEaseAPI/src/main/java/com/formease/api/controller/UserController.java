@@ -1,7 +1,7 @@
 package com.formease.api.controller;
 
 import com.formease.api.domain.user.*;
-import com.formease.api.domain.user.service.UserService;
+import com.formease.api.domain.user.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
