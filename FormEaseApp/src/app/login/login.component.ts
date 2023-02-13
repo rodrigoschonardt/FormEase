@@ -33,7 +33,7 @@ export class LoginComponent
       this.userService.createUser( this.name, this.username, this.password )
                       .subscribe( response => 
                       {
-                        console.log( response );
+                        this.router.navigate( ['/forms'] )
                       }, errorResponse => 
                       {
                         console.log( 'erro' );
@@ -45,7 +45,8 @@ export class LoginComponent
       this.authService.authenticate( this.username, this.password )
                       .subscribe( response => 
                       {
-                        console.log( 'logado' );
+                        this.authService.setSession( response );
+                        this.router.navigate(['/forms'])
                       }, errorResponse => 
                       {
                         console.log( 'erro' );

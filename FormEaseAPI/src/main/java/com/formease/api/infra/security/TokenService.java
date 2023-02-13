@@ -28,9 +28,9 @@ public class TokenService {
 
             return new JwtTokenData( JWT.create()
                                         .withIssuer("API formease")
-                                        .withSubject( user.getEmail() )
+                                        .withSubject( String.valueOf( user.getId() )  )
                                         .withExpiresAt( expiration )
-                                        .sign( algorithm ), expiration );
+                                        .sign( algorithm ) );
         }
         catch ( JWTCreationException ex )
         {

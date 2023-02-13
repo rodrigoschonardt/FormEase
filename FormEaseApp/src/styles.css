@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.btn, .btn:active
+{
+    width: 100% !important;
+    border: 0px !important;
+}
+
+.btn-primary
+{
+    background-color: #59C9A5 !important;
+}
+
+.btn-danger
+{
+    background-color: #DA594A !important;
+}

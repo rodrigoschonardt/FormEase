@@ -1,0 +1,15 @@
+<div>
+
+    <div *ngFor="let form of forms" class="cards-container">
+        <div class="card" style="width: 15rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ form.name }}</h5>
+              <p class="card-text">{{ form.info }}</p>
+              <div class="card-buttons">
+                  <a href="#" class="btn btn-primary">Editar</a>
+                  <a href="#" class="btn btn-danger">Excluir</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

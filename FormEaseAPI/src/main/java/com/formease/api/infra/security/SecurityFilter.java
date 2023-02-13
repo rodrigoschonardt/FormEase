@@ -34,8 +34,8 @@ public class SecurityFilter
 
         if ( token != null )
         {
-            String subject = tokenService.getSubject(token);
-            User user = (User) repository.findByEmail( subject );
+            String subject = tokenService.getSubject( token );
+            User user = (User) repository.findById( subject );
 
             Authentication authentication = new UsernamePasswordAuthenticationToken( user, null, user.getAuthorities() );
             SecurityContextHolder.getContext().setAuthentication(authentication);

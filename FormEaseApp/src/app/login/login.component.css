@@ -14,13 +14,6 @@ form
     padding: 0px 5px 0px 5px;
 }
 
-.btn, .btn:active
-{
-    width: 100%;
-    background-color: #59C9A5;
-    border: 0px;
-}
-
 a
 {
     text-decoration: none;
