@@ -41,11 +41,13 @@ public class FormController
 
     }
 
-    @GetMapping
-    public ResponseEntity<Page<FormDetailsData>> getForms( Pageable page )
+    @GetMapping( "/owner/{ownerId}" )
+    public ResponseEntity<Page<FormDetailsData>> getForms( Pageable page, @PathVariable Long ownerId )
     {
-        Page<FormDetailsData> forms = formRepository.findByStateIn( page, List.of( Form.States.ACTIVE, Form.States.SUSPENDED ) )
-                                                .map( FormDetailsData :: new );
+        Page<FormDetailsData> forms = formRepository.findByStateInAndOwnerId( page,
+                                                                              List.of( Form.States.ACTIVE,
+                                                                                       Form.States.SUSPENDED ),
+                                                                              ownerId ).map( FormDetailsData :: new );
 
         return ResponseEntity.ok( forms );
     }

@@ -17,11 +17,11 @@ export class AuthService
 
   authenticate( username : string, password : string )
   {
-    const user = JSON.stringify(
+    const user = 
     {
       "email" : username,
       "password" : password
-    } );
+    };
 
     const headers = new HttpHeaders( { 'Content-Type': 'application/json' } );
     const options = { headers: headers };  

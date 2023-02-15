@@ -15,17 +15,17 @@ export class UserService
 
   createUser( name : string, username : string, password : string )
   {
-    const user = JSON.stringify(
-      {
+    const user =
+    {
         "email" : username,
         "name" : name,
         "password" : password,
         "state" : 'ACTIVE'
-      } );
+    };
   
-      const headers = new HttpHeaders( { 'Content-Type': 'application/json' } );
-      const options = { headers: headers };  
+    const headers = new HttpHeaders( { 'Content-Type': 'application/json' } );
+    const options = { headers: headers };  
   
-      return this.http.post( this.apiUrl + '/users', user, options );
+    return this.http.post( this.apiUrl + '/users', user, options );
   }
 }

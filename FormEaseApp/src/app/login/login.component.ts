@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 
+declare var $ : any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,7 +35,8 @@ export class LoginComponent
       this.userService.createUser( this.name, this.username, this.password )
                       .subscribe( response => 
                       {
-                        this.router.navigate( ['/forms'] )
+                        this.switchMode();
+                        $( '#toast' ).toast( 'show' );
                       }, errorResponse => 
                       {
                         console.log( 'erro' );

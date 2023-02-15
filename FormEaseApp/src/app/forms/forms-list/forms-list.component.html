@@ -1,15 +1,71 @@
 <div>
-
-    <div *ngFor="let form of forms" class="cards-container">
-        <div class="card" style="width: 15rem;">
+    <div class="cards-container">
+        <div class="card">
+          <div (click)="prepareModal( null )" title="Adicionar novo Formulário" class="card-body add-card">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="60px" width="60px" version="1.1" id="Capa_1" viewBox="0 0 309.059 309.059" xml:space="preserve">
+              <g>
+                <g>
+                  <path style="fill:#9c9a9a;" d="M280.71,126.181h-97.822V28.338C182.889,12.711,170.172,0,154.529,0S126.17,12.711,126.17,28.338    v97.843H28.359C12.722,126.181,0,138.903,0,154.529c0,15.621,12.717,28.338,28.359,28.338h97.811v97.843    c0,15.632,12.711,28.348,28.359,28.348c15.643,0,28.359-12.717,28.359-28.348v-97.843h97.822    c15.632,0,28.348-12.717,28.348-28.338C309.059,138.903,296.342,126.181,280.71,126.181z"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div *ngFor="let form of forms" class="card">
             <div class="card-body">
               <h5 class="card-title">{{ form.name }}</h5>
               <p class="card-text">{{ form.info }}</p>
               <div class="card-buttons">
-                  <a href="#" class="btn btn-primary">Editar</a>
-                  <a href="#" class="btn btn-danger">Excluir</a>
+                  <a href="" (click)="prepareModal( form )" class="btn btn-primary">Editar</a>
+                  <a href="" (click)="prepareDeleteModal( form )" class="btn btn-danger">Excluir</a>
               </div>
             </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>{{ 'Tem certeza que deseja excluir o formulário: ' + activeForm.name }}</p>
           </div>
+          <div class="modal-footer">
+            <button (click)="deleteForm( activeForm.id )" type="button" class="btn btn-primary">Confirmar</button>
+            <button (click)="cancelAction()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade modal-lg" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="formModalLabel">{{ activeForm.id ? 'Editar ' + activeForm.name : 'Novo Formulário' }}</h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="form-name" class="col-form-label">Nome</label>
+                <input name="name" [(ngModel)]="activeForm.name" type="text" class="form-control" id="form-name">
+              </div>
+              <div class="form-group">
+                <label for="form-info" class="col-form-label">Descrição</label>
+                <textarea name="info" [(ngModel)]="activeForm.info" class="form-control" id="form-info"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button (click)="confirmAction()" type="button" class="btn btn-primary">Confirmar</button>
+            <button (click)="cancelAction()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+          <div class="toast-body">
+            Operação realizada com sucesso 
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
     </div>
 </div>

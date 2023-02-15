@@ -11,5 +11,5 @@ public interface FormRepository
     extends
         JpaRepository<Form, Long>
 {
-    Page<Form> findByStateIn(Pageable page, List<Form.States> states );
+    Page<Form> findByStateInAndOwnerId(Pageable page, List<Form.States> states, Long id );
 }

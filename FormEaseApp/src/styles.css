@@ -13,3 +13,13 @@
 {
     background-color: #DA594A !important;
 }
+
+.toast
+{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #59C9A5 !important;
+    border: 0px !important;
+    color: #fff !important;
+}

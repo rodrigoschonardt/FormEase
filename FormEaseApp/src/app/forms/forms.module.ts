@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsListComponent } from './forms-list/forms-list.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: 
@@ -9,7 +9,8 @@ import { FormsListComponent } from './forms-list/forms-list.component';
     FormsListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports :
   [

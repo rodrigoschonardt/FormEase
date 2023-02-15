@@ -12,3 +12,28 @@
     justify-content: space-between;
     gap: 10px;
 }
+
+.card-body
+{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card
+{
+    height: 200px;
+    width: 200px;
+}
+
+.add-card
+{
+    align-items: center;
+    justify-content: center;
+}
+
+.add-card:hover
+{
+    background-color:#e6e6e6;
+}
