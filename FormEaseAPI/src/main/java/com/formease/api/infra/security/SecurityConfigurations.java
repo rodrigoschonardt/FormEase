@@ -25,7 +25,10 @@ public class SecurityConfigurations
     private AntPathRequestMatcher[] requestMatchers =
     {
         new AntPathRequestMatcher( "/auth" ),
-        new AntPathRequestMatcher( "/users", HttpMethod.POST.toString() )
+        new AntPathRequestMatcher( "/users", HttpMethod.POST.toString() ),
+        new AntPathRequestMatcher( "/v3/api-docs/**" ),
+        new AntPathRequestMatcher( "/swagger-ui.html" ),
+        new AntPathRequestMatcher( "/swagger-ui/**" )
     };
 
     @Bean

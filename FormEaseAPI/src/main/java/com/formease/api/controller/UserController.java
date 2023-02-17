@@ -2,6 +2,7 @@ package com.formease.api.controller;
 
 import com.formease.api.domain.user.*;
 import com.formease.api.domain.user.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,10 +32,11 @@ public class UserController
 
         URI uri = uriBuilder.path( "users/{id}" ).buildAndExpand( user.getId() ).toUri();
 
-        return ResponseEntity.created( uri ).body( data );
+        return ResponseEntity.created( uri ).body( new UserDetailsData( user ) );
     }
 
     @GetMapping
+    @SecurityRequirement( name = "bearer-key" )
     public ResponseEntity<Page<UserDetailsData>> getUsers( Pageable page )
     {
         Page<UserDetailsData> users = userRepository.findAllByState( page, User.States.ACTIVE )
@@ -44,6 +46,7 @@ public class UserController
     }
 
     @GetMapping( "/{id}" )
+    @SecurityRequirement( name = "bearer-key" )
     public ResponseEntity getUser( @PathVariable Long id )
     {
         User user = userRepository.getReferenceById( id );
@@ -53,6 +56,7 @@ public class UserController
 
     @PutMapping
     @Transactional
+    @SecurityRequirement( name = "bearer-key" )
     public ResponseEntity update( @RequestBody @Valid UpdateUserData data )
     {
         User user = userRepository.getReferenceById(data.id() );
@@ -64,6 +68,7 @@ public class UserController
 
     @DeleteMapping( "/{id}" )
     @Transactional
+    @SecurityRequirement( name = "bearer-key" )
     public ResponseEntity delete( @PathVariable Long id )
     {
         User user = userRepository.getReferenceById( id );

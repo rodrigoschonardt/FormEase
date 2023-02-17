@@ -3,6 +3,7 @@ package com.formease.api.controller;
 import com.formease.api.domain.form.*;
 import com.formease.api.domain.user.User;
 import com.formease.api.domain.user.UserRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping( "/forms" )
+@SecurityRequirement( name = "bearer-key" )
 public class FormController
 {
     @Autowired
@@ -29,7 +31,7 @@ public class FormController
     @Transactional
     public ResponseEntity add( @RequestBody @Valid AddFormData data, UriComponentsBuilder uriBuilder )
     {
-        User owner = userRepository.getReferenceById(data.ownerId());
+        User owner = userRepository.getReferenceById( data.ownerId() );
 
         Form form = new Form( data, owner );
 

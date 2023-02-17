@@ -15,19 +15,19 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
-    @Value("${api.security.token.secret}")
+    @Value( "${api.security.token.secret}" )
     private String secret;
 
     public JwtTokenData generateToken( User user )
     {
         try
         {
-            Algorithm algorithm = Algorithm.HMAC256(secret);
+            Algorithm algorithm = Algorithm.HMAC256( secret );
 
             Instant expiration = getExpirationDate();
 
             return new JwtTokenData( JWT.create()
-                                        .withIssuer("API formease")
+                                        .withIssuer( "API formease" )
                                         .withSubject( String.valueOf( user.getId() )  )
                                         .withExpiresAt( expiration )
                                         .sign( algorithm ) );
