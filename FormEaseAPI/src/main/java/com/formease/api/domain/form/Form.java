@@ -1,12 +1,8 @@
 package com.formease.api.domain.form;
 
-import com.formease.api.domain.field.Field;
 import com.formease.api.domain.user.User;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity( name = "Form" )
 @Table( name = "forms" )
@@ -23,9 +19,6 @@ public class Form
     private Long id;
     private String name;
     private String info;
-
-    @OneToMany( cascade = CascadeType.ALL )
-    private List<Field> fields = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn( name = "ref_owner" )
