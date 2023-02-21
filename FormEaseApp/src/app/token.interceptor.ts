@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     const url = request.url;
 
-    if ( tokenString )
+    if ( tokenString && !url.includes( 'auth' ) )
     {
         request = request.clone(
         {

@@ -29,6 +29,7 @@ export class FormsListComponent
   {
     this.activeForm = new Form();
 
+    event.stopPropagation();
     event?.preventDefault();
 
     $( '#formModal' ).modal( 'show' );
@@ -37,6 +38,11 @@ export class FormsListComponent
     {
       this.activeForm = form;
     }
+  }
+
+  openFieldsTable( formId : number )
+  {
+    this.router.navigate( [ '/fields', formId ] )
   }
 
   confirmAction()
@@ -64,6 +70,7 @@ export class FormsListComponent
   prepareDeleteModal( form : Form )
   {
     event?.preventDefault();
+    event.stopPropagation();
 
     $( '#deleteModal' ).modal( 'show' );
 

@@ -10,6 +10,7 @@ import { TemplateModule } from './template/template.module';
 import { TokenInterceptor } from './token.interceptor';
 import { FormsModule } from '@angular/forms';
 import { FormModule } from './forms/forms.module';
+import { FieldsModule } from './fields/fields.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormModule } from './forms/forms.module';
     FormsModule,
     HttpClientModule,
     TemplateModule,
-    FormModule
+    FormModule,
+    FieldsModule
   ],
   providers: 
   [

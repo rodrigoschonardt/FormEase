@@ -44,8 +44,8 @@ public class FieldController
     @GetMapping( "/form/{formId}" )
     public ResponseEntity<Page<FieldDetailsData>> getFields( Pageable page, @PathVariable Long formId )
     {
-        Page<FieldDetailsData> fields = fieldRepository.findByFormId( page, formId )
-                                                        .map( FieldDetailsData :: new );
+        Page<FieldDetailsData> fields = fieldRepository.findByFormIdAndState( page, formId, Field.States.ACTIVE )
+                                                       .map( FieldDetailsData :: new );
 
         return ResponseEntity.ok( fields );
     }

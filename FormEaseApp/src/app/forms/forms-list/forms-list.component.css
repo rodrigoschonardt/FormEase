@@ -33,7 +33,8 @@
     justify-content: center;
 }
 
-.add-card:hover
+.card:hover
 {
     background-color:#e6e6e6;
+    cursor: pointer;
 }

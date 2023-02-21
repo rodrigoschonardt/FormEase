@@ -20,6 +20,11 @@ export class FormService {
     return this.http.get<Form[]>( this.apiUrl + '/owner/' + localStorage.getItem( 'userId' ) );
   }
 
+  getForm( id : number )
+  {
+    return this.http.get<Form>( this.apiUrl + "/" + id );
+  }
+
   editForm( form : Form )
   {
     const formData =

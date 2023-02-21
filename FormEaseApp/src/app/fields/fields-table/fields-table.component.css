@@ -1,0 +1,46 @@
+.table-container
+{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+table
+{
+    max-width: 700px;
+}
+
+.table-header
+{
+    color: #fff; 
+    height: 25px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+}
+
+.table-header-action
+{
+    text-decoration: none;
+    color: #fff; 
+}
+
+.actions-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-action:hover
+{
+    cursor: pointer;
+}
+
+.dropdown > button
+{
+    background-color: #fff;
+    color: #212529;
+    border: 1px solid #ced4da !important;
+    height: 38px;
+}

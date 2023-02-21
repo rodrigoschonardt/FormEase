@@ -8,5 +8,5 @@ public interface FieldRepository
     extends
         JpaRepository<Field, Long>
 {
-    Page<Field> findByFormId( Pageable page, Long formId );
+    Page<Field> findByFormIdAndState( Pageable page, Long formId, Field.States state );
 }

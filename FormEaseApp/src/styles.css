@@ -23,3 +23,8 @@
     border: 0px !important;
     color: #fff !important;
 }
+
+.form-check-input:checked {
+    background-color: #59C9A5 !important;
+    border-color: #59C9A5 !important;
+}
